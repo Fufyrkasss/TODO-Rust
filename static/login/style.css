@@ -1,0 +1,72 @@
+:root {
+    --bg: #0f1117; /*main background*/
+    --surface: #181b24; /*cards, panels*/
+    --surface-hover: #222633;
+    --text: #f1f3f5; /*main text*/
+    --text-muted: #9298a6; /*secondary text*/
+    --primary: #7c5cff; /* main */
+    --primary-hover: #9178ff;
+    --border: #292d3a;
+    --success: #4ade80;
+    --danger: #f87171;
+}
+.main {
+    width: 100%;
+    height: 100dvh;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+.reg {
+    width: 25%;
+    height: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    gap: 5%;
+}
+.login {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 60%;
+    height: 8%;
+}
+.login:focus {
+    border-color: var(--primary);
+}
+.login::placeholder {
+    color: var(--text-muted);
+}
+.password {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 60%;
+    height: 8%;
+}
+.password:focus {
+    border-color: var(--primary);
+}
+.password::placeholder {
+    color: var(--text-muted);
+}
+.auth {
+    width: 18%;
+    height: 9%;
+    margin-top: 5%;
+    background: var(--primary);
+    color: var(--text);
+    font-size: 14px;
+    border: none;
+    text-align: center;
+}
+.auth:hover {
+    background: var(--primary-hover);
+}
