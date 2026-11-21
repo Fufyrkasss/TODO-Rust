@@ -35,7 +35,7 @@ pub fn init_db(conn: &Connection) -> Result<()> {
     conn.execute(
         "CREATE TABLE IF NOT EXISTS status (
             id       INTEGER PRIMARY KEY,
-            name     TEXT NOT NULL,
+            name     TEXT NOT NULL
         )",
         (),
     )?;
