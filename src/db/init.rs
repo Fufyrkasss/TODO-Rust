@@ -26,9 +26,32 @@ pub fn init_db(conn: &Connection) -> Result<()> {
             id       INTEGER PRIMARY KEY,
             name     TEXT NOT NULL,
             content  TEXT NOT NULL,
+            status   INTEGER,
             creator  INTEGER,
             deadline TEXT NOT NULL
         )",
+        (),
+    )?;
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS status (
+            id       INTEGER PRIMARY KEY,
+            name     TEXT NOT NULL,
+        )",
+        (),
+    )?;
+    conn.execute(
+        "INSERT OR IGNORE INTO status(name)
+        VALUES ('done')",
+        (),
+    )?;
+    conn.execute(
+        "INSERT OR IGNORE INTO status(name)
+        VALUES ('undone')",
+        (),
+    )?;
+    conn.execute(
+        "INSERT OR IGNORE INTO status(name)
+        VALUES ('in progress')",
         (),
     )?;
     conn.execute(

@@ -7,9 +7,11 @@ use tower_http::services::ServeDir;
 mod db;
 mod models;
 mod handlers;
+mod token_auth;
 
 #[tokio::main]
 async fn main() {
+    dotenvy::dotenv().ok();
     let conn = db::connect().unwrap();
     db::init::init_db(&conn).unwrap();
     let app = Router::new()

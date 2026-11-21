@@ -4,6 +4,7 @@ use rusqlite::{
 };
 
 use crate::models::task::Task;
+use super::status::get_status_by_id;
 use super::user::get_user_by_id;
 
 pub fn get_task_by_id(conn: &Connection, id: i32) -> Result<Task> {
@@ -15,8 +16,9 @@ pub fn get_task_by_id(conn: &Connection, id: i32) -> Result<Task> {
                 id: row.get(0)?,
                 name: row.get(1)?,
                 content: row.get(2)?,
-                creator: get_user_by_id(conn, row.get(3)?).unwrap(),
-                deadline: row.get(4)?
+                status: get_status_by_id(conn, row.get(3)?),
+                creator: get_user_by_id(conn, row.get(4)?).unwrap(),
+                deadline: row.get(5)?
             })
         }
     );
